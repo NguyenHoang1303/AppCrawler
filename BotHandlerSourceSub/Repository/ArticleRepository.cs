@@ -1,4 +1,5 @@
 ﻿using BotHandlerSourceSub.Entity;
+using BotHandlerSourceSub.Repository.IRepo;
 using BotHandlerSourceSub.Util;
 using System;
 using System.Collections.Generic;
@@ -9,10 +10,13 @@ using System.Threading.Tasks;
 
 namespace BotHandlerSourceSub.Repository
 {
-    class ArticleRepository
+    class ArticleRepository : IArticleRepository
     {
-        private string InsertQuery = "SELECT * FROM Article";
+        private string GetAllQuery = "SELECT * FROM Article";
         private string QueryGetArticleByUrl = "SELECT * FROM Article WHERE UrlSource = @UrlSource";
+        private string InsertQuery = "INSERT INTO Article( UrlSource, Title, Image, Description, Content, CategoryId, CreatedAt )" +
+            " VALUES ( @UrlSource, @Title, @Image, @Description, @Content, @CategoryId, @CreatedAt ) ";
+
         public List<Article> GetAll()
         {
             List<Article> articles = new List<Article>();
@@ -21,7 +25,7 @@ namespace BotHandlerSourceSub.Repository
                 using (var cnn = ConnectionHelper.GetConnectSql())
                 {
                     cnn.Open();
-                    var command = new SqlCommand(InsertQuery, cnn);
+                    var command = new SqlCommand(GetAllQuery, cnn);
                     var data = command.ExecuteReader();
                     while (data.Read())
                     {
@@ -58,6 +62,35 @@ namespace BotHandlerSourceSub.Repository
                 Console.WriteLine(e.Message);
                 throw;
             }
+        }
+
+        public Article Save(Article article)
+        {
+            try
+            {
+                using (var cnn = ConnectionHelper.GetConnectSql())
+                {
+                    cnn.Open();
+                    var command = new SqlCommand(InsertQuery, cnn);
+                    command.Prepare();
+                    command.Parameters.AddWithValue("@UrlSource", article.UrlSource);
+                    command.Parameters.AddWithValue("@Title", article.Title);
+                    command.Parameters.AddWithValue("@Image", article.Image);
+                    command.Parameters.AddWithValue("@Description", article.Description);
+                    command.Parameters.AddWithValue("@Content", article.Content);
+                    command.Parameters.AddWithValue("@CategoryId", article.CategoryId);
+                    command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.Ticks);
+                    command.ExecuteNonQuery();
+                    return article;
+
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+
         }
 
         private Article CreateArticle(SqlDataReader data)

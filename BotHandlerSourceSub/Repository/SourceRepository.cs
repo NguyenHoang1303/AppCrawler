@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BotHandlerSourceSub.Repository
 {
-    class SourceRepository
+    class SourceRepository : ISourceRepository
     {
         private string InsertQuery = "SELECT * FROM Source";
         public List<Source> GetAll()

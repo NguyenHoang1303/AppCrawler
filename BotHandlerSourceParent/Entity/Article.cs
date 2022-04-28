@@ -14,7 +14,6 @@ namespace BotHandlerSourceParent.Entity
         public string Description { get; set; }
         public string Content { get; set; }
         public string CategoryId { get; set; }
-        public bool IsDeleted { get; set; } = true;
         public long CreatedAt { get; set; }
     }
 }

@@ -1,21 +1,24 @@
 ﻿using BotHandlerSourceSub.Entity;
 using BotHandlerSourceSub.Queue;
 using BotHandlerSourceSub.Repository;
+using BotHandlerSourceSub.Repository.IRepo;
+using BotHandlerSourceSub.Service.IService;
 using HtmlAgilityPack;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BotHandlerSourceSub.Util
+namespace BotHandlerSourceSub.Service
 {
-    class HandlerSource
+    class ArticleService : IArticleService
     {
+        private IArticleRepository articleRepository;
 
-        public static void GetArticle() 
+        public ArticleService()
         {
+            articleRepository = new ArticleRepository();
+        }
 
+        public void GetArticle(EventQueue eventQueue)
+        {
             try
             {
                 Console.OutputEncoding = System.Text.Encoding.UTF8;
@@ -35,15 +38,20 @@ namespace BotHandlerSourceSub.Util
                 };
                 Console.WriteLine("image: " + image);
                 Console.WriteLine("title: " + title);
-                Console.WriteLine("content: " + contentNode.InnerText);
+                Console.WriteLine("content: " + contentNode.InnerHtml);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 throw;
             }
-            
         }
 
+        public Article Save(Article article)
+        {
+            return articleRepository.Save(article);
+        }
+
+     
     }
 }

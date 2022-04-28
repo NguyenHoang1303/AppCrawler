@@ -1,16 +1,22 @@
-﻿using Newtonsoft.Json;
+﻿using BotHandlerSourceSub.Service;
+using BotHandlerSourceSub.Service.IService;
+using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BotHandlerSourceSub.Queue
 {
     class MyQueue
     {
+        private IArticleService articleService;
+
+        public MyQueue()
+        {
+            articleService = new ArticleService();
+        }
+
         public void Reciever()
         {
             var factory = new ConnectionFactory() { HostName = "localhost" };
@@ -28,8 +34,9 @@ namespace BotHandlerSourceSub.Queue
             {
                 var body = ea.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
-                EventQueue account = JsonConvert.DeserializeObject<EventQueue>(message);
-                Console.WriteLine(" [x] Received {0}", account.ToString());
+                EventQueue eventQueue = JsonConvert.DeserializeObject<EventQueue>(message);
+                articleService.GetArticle(eventQueue);
+                Console.WriteLine(" [x] Received {0}", eventQueue.ToString());
             };
             channel.BasicConsume(queue: "crawler",
                                  autoAck: true,
