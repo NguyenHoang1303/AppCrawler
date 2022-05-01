@@ -12,9 +12,9 @@ namespace BotHandlerSourceSub.Repository
 {
     class ArticleRepository : IArticleRepository
     {
-        private string GetAllQuery = "SELECT * FROM Article";
-        private string QueryGetArticleByUrl = "SELECT * FROM Article WHERE UrlSource = @UrlSource";
-        private string InsertQuery = "INSERT INTO Article( UrlSource, Title, Image, Description, Content, CategoryId, CreatedAt )" +
+        private string GetAllQuery = "SELECT * FROM Articles";
+        private string QueryGetArticleByUrl = "SELECT * FROM Articles WHERE UrlSource = @UrlSource";
+        private string InsertQuery = "INSERT INTO Articles( UrlSource, Title, Image, Description, Content, CategoryId, CreatedAt )" +
             " VALUES ( @UrlSource, @Title, @Image, @Description, @Content, @CategoryId, @CreatedAt ) ";
 
         public List<Article> GetAll()

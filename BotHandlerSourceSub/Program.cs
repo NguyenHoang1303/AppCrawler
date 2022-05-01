@@ -1,5 +1,6 @@
 ﻿using BotHandlerSourceSub.Queue;
 using BotHandlerSourceSub.Repository;
+using BotHandlerSourceSub.Service;
 using BotHandlerSourceSub.Util;
 using System;
 
@@ -9,8 +10,8 @@ namespace BotHandlerSourceSub
     {
         static void Main(string[] args)
         {
-            //new BotArticle().Start();
-            new MyQueue().Reciever();
+            new BotArticle().Start();
+
         }
     }
 }

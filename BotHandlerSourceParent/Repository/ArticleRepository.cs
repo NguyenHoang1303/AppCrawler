@@ -9,8 +9,8 @@ namespace BotHandlerSourceParent.Repository
 {
     class ArticleRepository : IArticleRepository
     {
-        private string InsertQuery = "SELECT * FROM Article";
-        private string QueryGetArticleByUrl = "SELECT * FROM Article WHERE UrlSource = @UrlSource";
+        private string InsertQuery = "SELECT * FROM Articles";
+        private string QueryGetArticleByUrl = "SELECT * FROM Articles WHERE UrlSource = @UrlSource";
         public List<Article> GetAll()
         {
             List<Article> articles = new List<Article>();

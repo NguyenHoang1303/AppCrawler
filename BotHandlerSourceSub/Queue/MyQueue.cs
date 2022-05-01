@@ -33,16 +33,16 @@ namespace BotHandlerSourceSub.Queue
             consumer.Received += (model, ea) =>
             {
                 var body = ea.Body.ToArray();
+                var i = 0;
                 var message = Encoding.UTF8.GetString(body);
                 EventQueue eventQueue = JsonConvert.DeserializeObject<EventQueue>(message);
-                articleService.GetArticle(eventQueue);
-                Console.WriteLine(" [x] Received {0}", eventQueue.ToString());
+                var article = articleService.GetArticle(eventQueue);
+                articleService.Save(article);
+                Console.WriteLine(" [x] Received{0}:  {1}",i++, article.Image);
             };
             channel.BasicConsume(queue: "crawler",
                                  autoAck: true,
                                  consumer: consumer);
-
-            Console.WriteLine(" Press [enter] to exit.");
             Console.ReadLine();
         }
     }

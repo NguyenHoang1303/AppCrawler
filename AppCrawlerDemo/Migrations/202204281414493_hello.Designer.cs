@@ -7,13 +7,13 @@ namespace AppCrawlerDemo.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class fist_commit : IMigrationMetadata
+    public sealed partial class hello : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(fist_commit));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(hello));
         
         string IMigrationMetadata.Id
         {
-            get { return "202204230307295_fist_commit"; }
+            get { return "202204281414493_hello"; }
         }
         
         string IMigrationMetadata.Source

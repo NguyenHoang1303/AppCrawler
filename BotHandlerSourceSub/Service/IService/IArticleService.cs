@@ -11,6 +11,6 @@ namespace BotHandlerSourceSub.Service.IService
     interface IArticleService
     {
         Article Save(Article article);
-        void GetArticle(EventQueue eventQueue);
+        Article GetArticle(EventQueue eventQueue);
     }
 }

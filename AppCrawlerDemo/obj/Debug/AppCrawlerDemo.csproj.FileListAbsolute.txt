@@ -97,6 +97,6 @@ C:\Users\hoang\source\repos\AppCrawlerDemo\AppCrawlerDemo\bin\Microsoft.CodeDom.
 C:\Users\hoang\source\repos\AppCrawlerDemo\AppCrawlerDemo\obj\Debug\AppCrawlerDemo.csproj.CopyComplete
 C:\Users\hoang\source\repos\AppCrawlerDemo\AppCrawlerDemo\obj\Debug\AppCrawlerDemo.dll
 C:\Users\hoang\source\repos\AppCrawlerDemo\AppCrawlerDemo\obj\Debug\AppCrawlerDemo.pdb
-C:\Users\hoang\source\repos\AppCrawlerDemo\AppCrawlerDemo\obj\Debug\AppCrawlerDemo.Migrations.fist_commit.resources
-C:\Users\hoang\source\repos\AppCrawlerDemo\AppCrawlerDemo\obj\Debug\AppCrawlerDemo.csproj.GenerateResource.cache
 C:\Users\hoang\source\repos\AppCrawlerDemo\AppCrawlerDemo\obj\Debug\AppCrawlerDemo.csproj.AssemblyReference.cache
+C:\Users\hoang\source\repos\AppCrawlerDemo\AppCrawlerDemo\obj\Debug\AppCrawlerDemo.Migrations.hello.resources
+C:\Users\hoang\source\repos\AppCrawlerDemo\AppCrawlerDemo\obj\Debug\AppCrawlerDemo.csproj.GenerateResource.cache

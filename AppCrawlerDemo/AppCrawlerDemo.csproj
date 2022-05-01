@@ -159,9 +159,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202204230307295_fist_commit.cs" />
-    <Compile Include="Migrations\202204230307295_fist_commit.Designer.cs">
-      <DependentUpon>202204230307295_fist_commit.cs</DependentUpon>
+    <Compile Include="Migrations\202204281414493_hello.cs" />
+    <Compile Include="Migrations\202204281414493_hello.Designer.cs">
+      <DependentUpon>202204281414493_hello.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Article.cs" />
@@ -223,8 +223,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202204230307295_fist_commit.resx">
-      <DependentUpon>202204230307295_fist_commit.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204281414493_hello.resx">
+      <DependentUpon>202204281414493_hello.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

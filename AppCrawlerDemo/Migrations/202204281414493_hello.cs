@@ -3,12 +3,12 @@ namespace AppCrawlerDemo.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class fist_commit : DbMigration
+    public partial class hello : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Article",
+                "dbo.Articles",
                 c => new
                     {
                         UrlSource = c.String(nullable: false, maxLength: 128),
@@ -22,16 +22,16 @@ namespace AppCrawlerDemo.Migrations
                 .PrimaryKey(t => t.UrlSource);
             
             CreateTable(
-                "dbo.Category",
+                "dbo.Categories",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
-                        name = c.String(),
+                        Name = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Source",
+                "dbo.Sources",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
@@ -49,9 +49,9 @@ namespace AppCrawlerDemo.Migrations
         
         public override void Down()
         {
-            DropTable("dbo.Source");
-            DropTable("dbo.Category");
-            DropTable("dbo.Article");
+            DropTable("dbo.Sources");
+            DropTable("dbo.Categories");
+            DropTable("dbo.Articles");
         }
     }
 }

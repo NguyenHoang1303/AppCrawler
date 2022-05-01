@@ -11,7 +11,7 @@ namespace BotHandlerSourceSub.Repository
 {
     class SourceRepository : ISourceRepository
     {
-        private string InsertQuery = "SELECT * FROM Source";
+        private string InsertQuery = "SELECT * FROM Sources";
         public List<Source> GetAll()
         {
             List<Source> sources = new List<Source>();
