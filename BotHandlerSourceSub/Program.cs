@@ -1,16 +1,14 @@
-﻿using BotHandlerSourceSub.Queue;
-using BotHandlerSourceSub.Repository;
-using BotHandlerSourceSub.Service;
-using BotHandlerSourceSub.Util;
-using System;
+﻿using BotHandlerSourceSub.App;
+using System.Threading.Tasks;
 
 namespace BotHandlerSourceSub
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            new BotArticle().Start();
+            CronJopApp cronJob = new();
+            await cronJob.Run();
 
         }
     }

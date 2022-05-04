@@ -37,8 +37,13 @@ namespace BotHandlerSourceSub.Queue
                 var message = Encoding.UTF8.GetString(body);
                 EventQueue eventQueue = JsonConvert.DeserializeObject<EventQueue>(message);
                 var article = articleService.GetArticle(eventQueue);
-                articleService.Save(article);
-                Console.WriteLine(" [x] Received{0}:  {1}",i++, article.Image);
+                if (article != null)
+                {
+                    articleService.Save(article);
+                    Console.WriteLine(" [x] Received{0}:  {1}", i++, article.Title);
+                }
+
+              
             };
             channel.BasicConsume(queue: "crawler",
                                  autoAck: true,

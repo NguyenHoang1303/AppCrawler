@@ -3,11 +3,11 @@ using Quartz.Impl;
 using System;
 using System.Threading.Tasks;
 
-namespace BotHandlerSourceParent.App
+namespace BotHandlerSourceSub.App
 {
     class CronJopApp
     {
-        private readonly StdSchedulerFactory factory;
+        private StdSchedulerFactory factory;
         private IScheduler scheduler;
         private IJobDetail job;
         private ITrigger trigger;
@@ -26,7 +26,7 @@ namespace BotHandlerSourceParent.App
             await scheduler.Start();
 
             // define the job and tie it to our HelloJob class
-            job = JobBuilder.Create<BotApp>()
+            job = JobBuilder.Create<BotArticle>()
                                         .WithIdentity("JobHandlerSource", "groupSource")
                                         .Build();
 

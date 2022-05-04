@@ -15,5 +15,26 @@ namespace BotHandlerSourceSub.Entity
         public string Content { get; set; }
         public string CategoryId { get; set; }
         public long CreatedAt { get; set; }
+
+        public bool Validation()
+        {
+            if (string.IsNullOrEmpty(Title))
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(Image))
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(Description))
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(Content))
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

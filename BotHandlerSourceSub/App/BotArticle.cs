@@ -1,6 +1,7 @@
 ﻿using BotHandlerSourceSub.Queue;
 using BotHandlerSourceSub.Service;
 using BotHandlerSourceSub.Service.IService;
+using Quartz;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BotHandlerSourceSub
 {
-    class BotArticle
+    class BotArticle : IJob
     {
         private MyQueue myQueue;
         public BotArticle()
@@ -17,7 +18,12 @@ namespace BotHandlerSourceSub
             myQueue = new MyQueue();
         }
 
-        public void Start()
+        public async Task Execute(IJobExecutionContext context)
+        {
+            await Start();
+        }
+
+        public async Task Start()
         {
             myQueue.Reciever();
         }
