@@ -1,6 +1,7 @@
 ﻿using BotHandlerSourceParent.Entity;
 using BotHandlerSourceParent.Queue;
 using BotHandlerSourceParent.Repository;
+using BotHandlerSourceParent.Service.IService;
 using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
@@ -9,12 +10,12 @@ namespace BotHandlerSourceParent.Service
 {
     class SourceService : ISourceService
     {
-        private SourceRepository sourceRepository;
-        private ArticleRepository articleRepository;
+        private ISourceRepository sourceRepository;
+        private IArticleService articleService;
         public SourceService()
         {
             sourceRepository = new SourceRepository();
-            articleRepository = new ArticleRepository();
+            articleService = new ArticleService();
         }
 
         public List<Source> GetAll()
@@ -28,7 +29,6 @@ namespace BotHandlerSourceParent.Service
             HtmlDocument doc = web.Load(source.Url);
             var nodeList = doc.QuerySelectorAll(source.SelectorSubUrl);
             HashSet<EventQueue> eventQueues = new();
-            int number = 0;
             foreach (var node in nodeList)
             {
                 var link = node.Attributes["href"].Value;
@@ -37,12 +37,12 @@ namespace BotHandlerSourceParent.Service
                     continue;
                 }
                 // Check urlSub đã có chưa nếu có rồi bỏ qua
-                var existSubUrl = articleRepository.GetArticleByUrl(link);
+                var existSubUrl = articleService.GetArticleByUrl(link);
                 if (existSubUrl != null)
                 {
                     continue;
                 }
-                number++;
+                Console.WriteLine(link);
                 EventQueue s = new(link, source);
                 eventQueues.Add(s);
             }

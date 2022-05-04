@@ -8,7 +8,7 @@ namespace BotHandlerSourceParent.Repository
 {
     class SourceRepository : ISourceRepository
     {
-        private string InsertQuery = "SELECT * FROM Sources";
+        private string QueryGetAll = "SELECT * FROM Sources";
         public List<Source> GetAll()
         {
             List<Source> sources = new List<Source>();
@@ -16,7 +16,7 @@ namespace BotHandlerSourceParent.Repository
             {
                 using var cnn = ConnectionHelper.GetConnectSql();
                 cnn.Open();
-                var command = new SqlCommand(InsertQuery, cnn);
+                var command = new SqlCommand(QueryGetAll, cnn);
                 var data = command.ExecuteReader();
                 while (data.Read())
                 {

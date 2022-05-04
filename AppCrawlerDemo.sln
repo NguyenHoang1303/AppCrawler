@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCrawlerDemo", "AppCrawlerDemo\AppCrawlerDemo.csproj", "{B0A7C4D4-1E71-46F0-8A82-E8E129288157}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotHandlerSourceParent", "BotHandlerSourceParent\BotHandlerSourceParent.csproj", "{E2DB5CA3-4433-4E4F-8926-26BFE04B00EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BotHandlerSourceParent", "BotHandlerSourceParent\BotHandlerSourceParent.csproj", "{E2DB5CA3-4433-4E4F-8926-26BFE04B00EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotHandlerSourceSub", "BotHandlerSourceSub\BotHandlerSourceSub.csproj", "{A8F79BEF-3392-4A15-8839-26F5408B5E7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BotHandlerSourceSub", "BotHandlerSourceSub\BotHandlerSourceSub.csproj", "{A8F79BEF-3392-4A15-8839-26F5408B5E7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoQuartz", "DemoQuartz\DemoQuartz.csproj", "{2F7F0C08-30D0-4CD9-96D0-0A53CD1E2F09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{A8F79BEF-3392-4A15-8839-26F5408B5E7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8F79BEF-3392-4A15-8839-26F5408B5E7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8F79BEF-3392-4A15-8839-26F5408B5E7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F7F0C08-30D0-4CD9-96D0-0A53CD1E2F09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F7F0C08-30D0-4CD9-96D0-0A53CD1E2F09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F7F0C08-30D0-4CD9-96D0-0A53CD1E2F09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F7F0C08-30D0-4CD9-96D0-0A53CD1E2F09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

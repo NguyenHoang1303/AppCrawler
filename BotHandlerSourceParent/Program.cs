@@ -1,18 +1,19 @@
-﻿using BotHandlerSourceParent.Entity;
+﻿using BotHandlerSourceParent.App;
 using BotHandlerSourceParent.Queue;
-using BotHandlerSourceParent.Repository;
-using BotHandlerSourceParent.Service;
-using BotHandlerSourceParent.Util;
+using System.Threading.Tasks;
 
 namespace BotHandlerSourceParent
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            new BotApp().Start();
+            //new BotApp().Start();
 
-            
+            var cronJopApp = new CronJopApp();
+            await cronJopApp.Run();
+
+            //new MyQueue().TestSender("hello Nguyen");
         }
     }
 }
