@@ -48,7 +48,6 @@ namespace BotHandlerSourceSub.Queue
             channel.BasicConsume(queue: "crawler",
                                  autoAck: true,
                                  consumer: consumer);
-            Console.ReadLine();
         }
     }
 }
