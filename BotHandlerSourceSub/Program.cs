@@ -12,7 +12,7 @@ namespace BotHandlerSourceSub
         {
             //CronJopApp cronJob = new();
             //await cronJob.Run();
-            var settings = new ConnectionSettings(new Uri("http://elastic:FKU5nCdN1N_-qSWFcTvd@localhost:9200")).DefaultIndex("db_Appcrawler");
+            var settings = new ConnectionSettings(new Uri("http://elastic:Q7IfX2QEboBUtz+UwXcm@localhost:9200")).DefaultIndex("db_Appcrawler");
 
             var client = new ElasticClient(settings);
             var article = new Article()
