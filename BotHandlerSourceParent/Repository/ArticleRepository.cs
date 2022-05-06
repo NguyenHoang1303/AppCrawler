@@ -9,47 +9,41 @@ namespace BotHandlerSourceParent.Repository
 {
     class ArticleRepository : IArticleRepository
     {
-        private string InsertQuery = "SELECT * FROM Articles";
+        private string GetAllQuery = "SELECT * FROM Articles";
         private string QueryGetArticleByUrl = "SELECT * FROM Articles WHERE UrlSource = @UrlSource";
         public List<Article> GetAll()
         {
-            List<Article> articles = new List<Article>();
+            List<Article> articles = new();
             try
             {
-                using (var cnn = ConnectionHelper.GetConnectSql())
+                using var cnn = ConnectionHelper.GetConnectSql();
+                cnn.Open();
+                var command = new SqlCommand(GetAllQuery, cnn);
+                var data = command.ExecuteReader();
+                while (data.Read())
                 {
-                    cnn.Open();
-                    var command = new SqlCommand(InsertQuery, cnn);
-                    var data = command.ExecuteReader();
-                    while (data.Read())
-                    {
-                        articles.Add(CreateArticle(data));
-                    }
-                    return articles;
+                    articles.Add(CreateArticle(data));
                 }
+                return articles;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 throw;
-
             }
         }
 
-        public Article GetArticleByUrl(string urlSource)
+        public bool CheckArticleByUrl(string urlSource)
         {
             try
             {
-                using (var cnn = ConnectionHelper.GetConnectSql())
-                {
-                    cnn.Open();
-                    var command = new SqlCommand(QueryGetArticleByUrl, cnn);
-                    command.Prepare();
-                    command.Parameters.AddWithValue("@UrlSource", urlSource);
-                    var data = command.ExecuteReader();
-                    return data.Read() ? CreateArticle(data) : null;
-
-                }
+                using var cnn = ConnectionHelper.GetConnectSql();
+                cnn.Open();
+                var command = new SqlCommand(QueryGetArticleByUrl, cnn);
+                command.Prepare();
+                command.Parameters.AddWithValue("@UrlSource", urlSource);
+                var data = command.ExecuteReader();
+                return data.Read();
             }
             catch (Exception e)
             {

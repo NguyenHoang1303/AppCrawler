@@ -20,6 +20,7 @@ namespace BotHandlerSourceParent.App
          
         public async Task Run()
         {
+            Console.WriteLine("Start");
             // Grab the Scheduler instance from the Factory
             scheduler = await factory.GetScheduler();
             // and start it off
@@ -35,7 +36,7 @@ namespace BotHandlerSourceParent.App
                                         .WithIdentity("trigger1", "groupSource")
                                         .StartNow()
                                         .WithSimpleSchedule(x => x
-                                            .WithIntervalInSeconds(5)
+                                            .WithIntervalInHours(1)
                                             .RepeatForever())
                                         .Build();
 
@@ -43,10 +44,11 @@ namespace BotHandlerSourceParent.App
             await scheduler.ScheduleJob(job, trigger);
 
             //some sleep to show what's happening
-            await Task.Delay(TimeSpan.FromSeconds(5));
+            await Task.Delay(TimeSpan.FromDays(1));
 
             // and last shut down the scheduler when you are ready to close your program
             await scheduler.Shutdown();
+            Console.WriteLine("Stop");
         }
 
     }

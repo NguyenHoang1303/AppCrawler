@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XKvMzv9qH32nO3vMsFG4zCKOz2CVY6mh5ACfdDAX5eLwFyfiEP3afh5GBoMJGrrWBESLdiMNHLuXU/+qxsZ4gQ==",
+  "dgSpecHash": "LjFTSAxR21jdAci6+mdHSlu/5jhNcJ8I6jh2g5E6quog5Dn/tMB24ezYnDri43f3aQh6C3e3vEYw0gU8ofNa2w==",
   "success": true,
   "projectFilePath": "C:\\Users\\hoang\\source\\repos\\AppCrawlerDemo\\BotHandlerSourceSub\\BotHandlerSourceSub.csproj",
   "expectedPackageFiles": [
@@ -13,7 +13,9 @@
     "C:\\Users\\hoang\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\hoang\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\hoang\\.nuget\\packages\\nest\\7.17.1\\nest.7.17.1.nupkg.sha512",
+    "C:\\Users\\hoang\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
     "C:\\Users\\hoang\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\hoang\\.nuget\\packages\\nunit\\3.13.3\\nunit.3.13.3.nupkg.sha512",
     "C:\\Users\\hoang\\.nuget\\packages\\quartz\\3.4.0\\quartz.3.4.0.nupkg.sha512",
     "C:\\Users\\hoang\\.nuget\\packages\\rabbitmq.client\\6.2.4\\rabbitmq.client.6.2.4.nupkg.sha512",
     "C:\\Users\\hoang\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",

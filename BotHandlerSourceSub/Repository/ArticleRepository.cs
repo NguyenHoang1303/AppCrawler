@@ -19,20 +19,18 @@ namespace BotHandlerSourceSub.Repository
 
         public List<Article> GetAll()
         {
-            List<Article> articles = new List<Article>();
+            List<Article> articles = new();
             try
             {
-                using (var cnn = ConnectionHelper.GetConnectSql())
+                using var cnn = ConnectionHelper.GetConnectSql();
+                cnn.Open();
+                var command = new SqlCommand(GetAllQuery, cnn);
+                var data = command.ExecuteReader();
+                while (data.Read())
                 {
-                    cnn.Open();
-                    var command = new SqlCommand(GetAllQuery, cnn);
-                    var data = command.ExecuteReader();
-                    while (data.Read())
-                    {
-                        articles.Add(CreateArticle(data));
-                    }
-                    return articles;
+                    articles.Add(CreateArticle(data));
                 }
+                return articles;
             }
             catch (Exception e)
             {
@@ -46,16 +44,13 @@ namespace BotHandlerSourceSub.Repository
         {
             try
             {
-                using (var cnn = ConnectionHelper.GetConnectSql())
-                {
-                    cnn.Open();
-                    var command = new SqlCommand(QueryGetArticleByUrl, cnn);
-                    command.Prepare();
-                    command.Parameters.AddWithValue("@UrlSource", urlSource);
-                    var data = command.ExecuteReader();
-                    return data.Read() ? CreateArticle(data) : null;
-
-                }
+                using var cnn = ConnectionHelper.GetConnectSql();
+                cnn.Open();
+                var command = new SqlCommand(QueryGetArticleByUrl, cnn);
+                command.Prepare();
+                command.Parameters.AddWithValue("@UrlSource", urlSource);
+                var data = command.ExecuteReader();
+                return data.Read() ? CreateArticle(data) : null;
             }
             catch (Exception e)
             {
@@ -68,22 +63,19 @@ namespace BotHandlerSourceSub.Repository
         {
             try
             {
-                using (var cnn = ConnectionHelper.GetConnectSql())
-                {
-                    cnn.Open();
-                    var command = new SqlCommand(InsertQuery, cnn);
-                    command.Prepare();
-                    command.Parameters.AddWithValue("@UrlSource", article.UrlSource);
-                    command.Parameters.AddWithValue("@Title", article.Title);
-                    command.Parameters.AddWithValue("@Image", article.Image);
-                    command.Parameters.AddWithValue("@Description", article.Description);
-                    command.Parameters.AddWithValue("@Content", article.Content);
-                    command.Parameters.AddWithValue("@CategoryId", article.CategoryId);
-                    command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.Ticks);
-                    command.ExecuteNonQuery();
-                    return article;
-
-                }
+                using var cnn = ConnectionHelper.GetConnectSql();
+                cnn.Open();
+                var command = new SqlCommand(InsertQuery, cnn);
+                command.Prepare();
+                command.Parameters.AddWithValue("@UrlSource", article.UrlSource);
+                command.Parameters.AddWithValue("@Title", article.Title);
+                command.Parameters.AddWithValue("@Image", article.Image);
+                command.Parameters.AddWithValue("@Description", article.Description);
+                command.Parameters.AddWithValue("@Content", article.Content);
+                command.Parameters.AddWithValue("@CategoryId", article.CategoryId);
+                command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.Ticks);
+                command.ExecuteNonQuery();
+                return article;
             }
             catch (Exception e)
             {
@@ -93,7 +85,7 @@ namespace BotHandlerSourceSub.Repository
 
         }
 
-        private Article CreateArticle(SqlDataReader data)
+        private static Article CreateArticle(SqlDataReader data)
         {
             return new Article()
             {

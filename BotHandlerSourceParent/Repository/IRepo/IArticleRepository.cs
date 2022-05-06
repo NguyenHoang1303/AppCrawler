@@ -10,6 +10,6 @@ namespace BotHandlerSourceParent.Repository.IRepo
     interface IArticleRepository
     {
         List<Article> GetAll();
-        Article GetArticleByUrl(string urlSource);
+        bool CheckArticleByUrl(string urlSource);
     }
 }

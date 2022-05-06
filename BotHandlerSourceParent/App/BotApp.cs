@@ -19,9 +19,6 @@ namespace BotHandlerSourceParent
         private List<Source> listSource;
         public BotApp()
         {
-            sourceService = new SourceService();
-            myQueue = new();
-            listSource = new();
         }
 
         public async Task Execute(IJobExecutionContext context)
@@ -29,13 +26,13 @@ namespace BotHandlerSourceParent
             sourceService = new SourceService();
             myQueue = new();
             listSource = sourceService.GetAll();
-            Console.WriteLine(listSource[0].ToString());
             foreach (var source in listSource)
             {
                 var listEvent = sourceService.GetSubLink(source);
 
                 foreach (var eventQueue in listEvent)
                 {
+                    Console.WriteLine(eventQueue.Url);
                     myQueue.Sender(eventQueue);
                 }
             }

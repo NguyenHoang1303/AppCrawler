@@ -17,9 +17,9 @@ namespace BotHandlerSourceParent.Service
         {
             reprository = new ArticleRepository();
         }
-        public Article GetArticleByUrl(string url)
+        public bool CheckArticleByUrl(string url)
         {
-            return reprository.GetArticleByUrl(url);
+            return reprository.CheckArticleByUrl(url);
         }
     }
 }

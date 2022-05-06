@@ -40,7 +40,7 @@ namespace BotHandlerSourceSub.Queue
                 if (article != null)
                 {
                     articleService.Save(article);
-                    Console.WriteLine(" [x] Received{0}:  {1}", i++, article.Title);
+                    Console.WriteLine(" [x] Received{0}:  {1}", i++, article.UrlSource);
                 }
 
               
@@ -48,6 +48,7 @@ namespace BotHandlerSourceSub.Queue
             channel.BasicConsume(queue: "crawler",
                                  autoAck: true,
                                  consumer: consumer);
+            Console.ReadLine();
         }
     }
 }

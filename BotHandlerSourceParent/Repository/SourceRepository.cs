@@ -11,7 +11,7 @@ namespace BotHandlerSourceParent.Repository
         private string QueryGetAll = "SELECT * FROM Sources";
         public List<Source> GetAll()
         {
-            List<Source> sources = new List<Source>();
+            List<Source> sources = new();
             try
             {
                 using var cnn = ConnectionHelper.GetConnectSql();

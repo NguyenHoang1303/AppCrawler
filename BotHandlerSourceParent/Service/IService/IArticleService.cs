@@ -4,6 +4,6 @@ namespace BotHandlerSourceParent.Service.IService
 {
     interface IArticleService
     {
-        Article GetArticleByUrl(string url); 
+        bool CheckArticleByUrl(string url); 
     }
 }

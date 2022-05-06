@@ -16,7 +16,6 @@ namespace BotHandlerSourceSub.Entity
         public string SelectorDescrition { get; set; }
         public string SelectorContent { get; set; }
         public string CategoryId { get; set; }
-
         
     }
 }

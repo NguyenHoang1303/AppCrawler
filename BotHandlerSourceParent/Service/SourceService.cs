@@ -30,27 +30,31 @@ namespace BotHandlerSourceParent.Service
             HtmlDocument doc = web.Load(source.Url);
             var nodeList = doc.QuerySelectorAll(source.SelectorSubUrl);
             HashSet<EventQueue> eventQueues = new();
-            foreach (var node in nodeList)
+            if (nodeList != null)
             {
-                if (node.Attributes[VnExpress.HREF] != null)
+                foreach (var node in nodeList)
                 {
-                    var link = node.Attributes[VnExpress.HREF].Value;
-                    if (string.IsNullOrEmpty(link) || link.Contains(VnExpress.BOX_COMMENT))
+                    if (node.Attributes[VnExpress.HREF] != null)
                     {
-                        continue;
+                        var link = node.Attributes[VnExpress.HREF].Value;
+                        if (string.IsNullOrEmpty(link) || link.Contains(VnExpress.BOX_COMMENT))
+                        {
+                            continue;
+                        }
+
+                        // Check urlSub đã có chưa nếu có rồi bỏ qua
+                        var existSubUrl = articleService.CheckArticleByUrl(link);
+                        if (existSubUrl)
+                        {
+                            continue;
+                        }
+                        EventQueue s = new(link, source);
+                        eventQueues.Add(s);
                     }
-                    // Check urlSub đã có chưa nếu có rồi bỏ qua
-                    var existSubUrl = articleService.GetArticleByUrl(link);
-                    if (existSubUrl != null)
-                    {
-                        continue;
-                    }
-                    Console.WriteLine(link);
-                    EventQueue s = new(link, source);
-                    eventQueues.Add(s);
+
                 }
-               
             }
+            
             return eventQueues;
         }
     }
