@@ -1,4 +1,5 @@
-﻿using BotHandlerSourceSub.Service;
+﻿using BotHandlerSourceSub.Elastic;
+using BotHandlerSourceSub.Service;
 using BotHandlerSourceSub.Service.IService;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
@@ -40,6 +41,7 @@ namespace BotHandlerSourceSub.Queue
                 if (article != null)
                 {
                     articleService.Save(article);
+                    ElasticService.GetInstance().IndexDocument(article);
                     Console.WriteLine(" [x] Received{0}:  {1}", i++, article.UrlSource);
                 }
 
