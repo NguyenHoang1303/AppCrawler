@@ -13,7 +13,7 @@
 
 AppCrawlerDemo/bin/
 AppCrawlerDemo/obj/
-.vs/AppCrawlerDemo/
+.vs/
 AppCrawlerDemo/obj/Debug/
 BotHandlerSourceParent/obj/
 BotHandlerSourceSub/obj/
