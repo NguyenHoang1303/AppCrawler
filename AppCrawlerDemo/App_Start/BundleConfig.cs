@@ -25,6 +25,12 @@ namespace AppCrawlerDemo
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Js/source").Include(
+            "~/Scripts/Source/source.js"));
+            bundles.Add(new StyleBundle("~/Js/article").Include(
+       "~/Scripts/Article/article.js"));
+            bundles.Add(new StyleBundle("~/font/Heebo").Include(
+   "~/css/font-google.css"));
         }
     }
 }

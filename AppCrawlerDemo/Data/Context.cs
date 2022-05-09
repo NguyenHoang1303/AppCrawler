@@ -10,11 +10,10 @@ namespace AppCrawlerDemo.Data
 {
     public class Context: DbContext
     {
-        public Context() : base("DBApp")
+        public Context() : base("DbArticle")
         {
         }
-
-        public DbSet<Article> Articles { get; set; }
+        public DbSet<Article> Article { get; set; }
         public DbSet<Source> Sources { get; set; }
         public DbSet<Category> Categories { get; set; }
 
