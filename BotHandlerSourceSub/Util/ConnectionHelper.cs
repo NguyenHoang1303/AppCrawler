@@ -11,13 +11,22 @@ namespace BotHandlerSourceSub.Util
     class ConnectionHelper
     {
         private static SqlConnection _connection;
-        private const string ConnectionString = "Data Source=NGUYENHS;Initial Catalog=ClientApp;Integrated Security=SSPI;";
+        private static string DataSource = "tcp:apparticledb.database.windows.net,1433";
+        private static string UserID = "articledb";
+        private static string Password = "123@123Aa";
+        private static string InitialCatalog = "AppCrawlerDemoDb";
         public static SqlConnection GetConnectSql()
         {
+
             if (_connection == null || _connection.State == ConnectionState.Closed)
             {
-                _connection = new SqlConnection(
-                    string.Format(ConnectionString));
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = DataSource;
+                builder.UserID = UserID;
+                builder.Password = Password;
+                builder.InitialCatalog = InitialCatalog;
+                SqlConnection connection = new SqlConnection(builder.ConnectionString);
+                _connection = connection;
             }
             return _connection;
         }

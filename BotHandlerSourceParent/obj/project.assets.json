@@ -1507,23 +1507,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hoang\\.nuget\\packages\\": {},
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hoang\\source\\repos\\AppCrawlerDemo\\BotHandlerSourceParent\\BotHandlerSourceParent.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\AppCrawler\\BotHandlerSourceParent\\BotHandlerSourceParent.csproj",
       "projectName": "BotHandlerSourceParent",
-      "projectPath": "C:\\Users\\hoang\\source\\repos\\AppCrawlerDemo\\BotHandlerSourceParent\\BotHandlerSourceParent.csproj",
-      "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hoang\\source\\repos\\AppCrawlerDemo\\BotHandlerSourceParent\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\source\\repos\\AppCrawler\\BotHandlerSourceParent\\BotHandlerSourceParent.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\source\\repos\\AppCrawler\\BotHandlerSourceParent\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1594,7 +1594,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   },

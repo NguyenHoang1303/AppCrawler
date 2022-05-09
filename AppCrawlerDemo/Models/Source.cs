@@ -14,6 +14,12 @@ namespace AppCrawlerDemo.Models
         public string SelectorImage { get; set; }
         public string SelectorDescrition { get; set; }
         public string SelectorContent { get; set; }
-        public string CategoryId { get; set; }
+        public string CategoryId { get; set; } 
+       public string ToString()
+        {
+            return this.Url + ""+this.SelectorTitle;
+        }
+
     }
+ 
 }

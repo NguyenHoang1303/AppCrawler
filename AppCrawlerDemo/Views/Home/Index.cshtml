@@ -1,31 +1,197 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model AppCrawlerDemo.Models.Source
+
+@section css{
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
 }
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">Borrow Website</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-md-12">
+                    <div class="wrapper">
+                        <div class="row no-gutters">
+                            <div class="col-md-7 d-flex align-items-stretch">
+                                <div class="contact-wrap w-100 p-md-5 p-4">
+                                    <h3 class="mb-4">Get in touch</h3>
+                                    <div id="form-message-warning" class="mb-4"></div>
+                                    <div id="form-message-success" class="mb-4">
+                                        Your message was sent, thank you!
+                                    </div>
+                                    <form method="POST" id="contactForm" name="contactForm">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @class = "form-control", @Value = "https://vnexpress.net/bong-da", @placeholder = "Link" } })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" value="col-left col-left-subfolder" name="selector" placeholder="Selector" />
+                                                </div>
+                                            </div>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+                                            <div class="col-md-12">
+                                                <div class="form-group">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+                                                    <button type="button" id="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Send</button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-5 d-flex align-items-stretch">
+                                <div class="info-wrap bg-primary w-100 p-lg-5 p-4">
+                                    <h3 class="mb-4 mt-md-4">Contact us</h3>
+                                    <div class="dbox w-100 d-flex align-items-start">
+                                        <div class="icon d-flex align-items-center justify-content-center">
+                                            <span class="fa fa-map-marker"></span>
+                                        </div>
+                                        <div class="text pl-3">
+                                            <p><span>Address:</span> 8A, Tôn Thất Thuyết, P. Mỹ Đình 2, Q. Nam Từ Liêm, Tp. Hà Nội</p>
+                                        </div>
+                                    </div>
+                                    <div class="dbox w-100 d-flex align-items-center">
+                                        <div class="icon d-flex align-items-center justify-content-center">
+                                            <span class="fa fa-phone"></span>
+                                        </div>
+                                        <div class="text pl-3">
+                                            <p><span>Phone:</span> <a href="tel://1234567920">+84 999 999 999</a></p>
+                                        </div>
+                                    </div>
+                                    <div class="dbox w-100 d-flex align-items-center">
+                                        <div class="icon d-flex align-items-center justify-content-center">
+                                            <span class="fa fa-paper-plane"></span>
+                                        </div>
+                                        <div class="text pl-3">
+                                            <p><span>Email:</span> <a href="#"><span class="__cf_email__" data-cfemail="f0999e969fb0899f858283998495de939f9d">team09@gmail.com</span></a></p>
+                                        </div>
+                                    </div>
+                                    <div class="dbox w-100 d-flex align-items-center">
+                                        <div class="icon d-flex align-items-center justify-content-center">
+                                            <span class="fa fa-globe"></span>
+                                        </div>
+                                        <div class="text pl-3">
+                                            <p><span>Website</span> <a href="#">@ViewBag.url</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="selector-detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form name="insert">
+                                @Html.AntiForgeryToken()
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Url, htmlAttributes: new { @class = "control-label col-md-1" })
+                                    <div class="col-md-12">
+                                        @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @class = "form-control", @Value = "https://vnexpress.net/bong-da" } })
+                                        @Html.ValidationMessageFor(model => model.Url, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.SelectorTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-12">
+                                        @Html.EditorFor(model => model.SelectorTitle, new { htmlAttributes = new { @class = "form-control", @Value = "title-detail" } })
+                                        @Html.ValidationMessageFor(model => model.SelectorTitle, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.CategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-12">
+                                        <select name="category_id">
+                                            @foreach (var item in @ViewBag.categories)
+                {
+                                            <option value="@item.Id">
+                                               @item.Name
+                                            </option>
+                }
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.SelectorDescrition, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-12">
+                                        @Html.EditorFor(model => model.SelectorDescrition, new { htmlAttributes = new { @class = "form-control", @Value = "description" } })
+                                        @Html.ValidationMessageFor(model => model.SelectorDescrition, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.SelectorImage, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-12">
+                                        @Html.EditorFor(model => model.SelectorImage, new { htmlAttributes = new { @class = "form-control", @Value = "fig-picture" } })
+                                        @Html.ValidationMessageFor(model => model.SelectorImage, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.SelectorContent, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-12">
+                                        @Html.EditorFor(model => model.SelectorContent, new { htmlAttributes = new { @class = "form-control", @Value = "Normal" } })
+                                        @Html.ValidationMessageFor(model => model.SelectorContent, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" style="margin-bottom: 0px;" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" id="insert" class="btn btn-primary">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" style="width: 90%;" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Links Detail</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <ul class="list-link">
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" style="margin-bottom: 0px;" class="btn btn-secondary" data-dismiss="modal">Back</button>
+                            <button type="button" class="btn btn-primary next-step" data-dismiss="modal" data-toggle="modal" data-target="#selector-detail" data-whatever="fat">Next Step</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+}
+    @section scripts
+{
+        @Scripts.Render("~/Js/source")
+    }
+

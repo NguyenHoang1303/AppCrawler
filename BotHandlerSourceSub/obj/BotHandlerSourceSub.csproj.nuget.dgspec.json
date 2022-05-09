@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hoang\\source\\repos\\AppCrawlerDemo\\BotHandlerSourceSub\\BotHandlerSourceSub.csproj": {}
+    "C:\\Users\\Admin\\source\\repos\\AppCrawler\\BotHandlerSourceSub\\BotHandlerSourceSub.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hoang\\source\\repos\\AppCrawlerDemo\\BotHandlerSourceSub\\BotHandlerSourceSub.csproj": {
+    "C:\\Users\\Admin\\source\\repos\\AppCrawler\\BotHandlerSourceSub\\BotHandlerSourceSub.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hoang\\source\\repos\\AppCrawlerDemo\\BotHandlerSourceSub\\BotHandlerSourceSub.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\AppCrawler\\BotHandlerSourceSub\\BotHandlerSourceSub.csproj",
         "projectName": "BotHandlerSourceSub",
-        "projectPath": "C:\\Users\\hoang\\source\\repos\\AppCrawlerDemo\\BotHandlerSourceSub\\BotHandlerSourceSub.csproj",
-        "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hoang\\source\\repos\\AppCrawlerDemo\\BotHandlerSourceSub\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\AppCrawler\\BotHandlerSourceSub\\BotHandlerSourceSub.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\AppCrawler\\BotHandlerSourceSub\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -88,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

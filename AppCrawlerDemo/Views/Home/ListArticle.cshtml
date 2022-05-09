@@ -1,0 +1,126 @@
+﻿@model IEnumerable<AppCrawlerDemo.Models.Article>
+
+@section css{
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/css/main.css">
+    <meta name="robots" content="noindex, follow">
+    <script nonce="68c62a49-7430-45f0-817a-2487c4a694e0">(function (w, d) { !function (a, e, t, r) { a.zarazData = a.zarazData || {}, a.zarazData.executed = [], a.zaraz = { deferred: [] }, a.zaraz.q = [], a.zaraz._f = function (e) { return function () { var t = Array.prototype.slice.call(arguments); a.zaraz.q.push({ m: e, a: t }) } }; for (const e of ["track", "set", "ecommerce", "debug"]) a.zaraz[e] = a.zaraz._f(e); a.addEventListener("DOMContentLoaded", (() => { var t = e.getElementsByTagName(r)[0], z = e.createElement(r), n = e.getElementsByTagName("title")[0]; for (n && (a.zarazData.t = e.getElementsByTagName("title")[0].text), a.zarazData.w = a.screen.width, a.zarazData.h = a.screen.height, a.zarazData.j = a.innerHeight, a.zarazData.e = a.innerWidth, a.zarazData.l = a.location.href, a.zarazData.r = e.referrer, a.zarazData.k = a.screen.colorDepth, a.zarazData.n = e.characterSet, a.zarazData.o = (new Date).getTimezoneOffset(), a.zarazData.q = []; a.zaraz.q.length;) { const e = a.zaraz.q.shift(); a.zarazData.q.push(e) } z.defer = !0, z.referrerPolicy = "origin", z.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(a.zarazData))), t.parentNode.insertBefore(z, t) })) }(w, d, 0, "script"); })(window, document);</script>
+}
+
+<div class="container m-lg-5 ">
+    <div class="col-md-4 col-sm-2 col-sm-offset-4 col-xs-offset-2 input-group">
+        <div class="form-outline shado-b">
+            <input type="search" id="form1" class="form-control vw-100" />
+        </div>
+        <button type="button" class="btn btn-primary">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+</div>
+<div class="limiter">
+
+    <div class="wrap-table100">
+        <div class="table100 ver1 m-b-110">
+            <div class="table100-head">
+                <table>
+                    @Html.AntiForgeryToken()
+                    <thead>
+                        <tr class="select2-selection__arrow head">
+                            <th class="cell100 column1">
+                                LINK
+                            </th>
+                            <th class="cell100 column2">
+                                TITLE
+                            </th>
+                            <th class="cell100 column3">
+                                DESCRIPTION
+                            </th>
+                            <th class="cell100 column4">
+                                THUMBNAIL
+                            </th>
+                            <th class="cell100 column5">
+                                CREATED
+                            </th>
+                            <th class="cell100 column6">Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="table100-body js-pscroll">
+                <table>
+
+                    <tbody>
+                        @*    @foreach (var item in Model) {*@
+                        <tr class="row100 body">
+                            <td class="link column1">
+                                @*   @Html.DisplayFor(modelItem => item.UrlSource)*@
+                                https://localhost:44360/Home/ListArticle
+                            </td>
+                            <td class="cell100 column2">
+                                @*  @Html.DisplayFor(modelItem => item.Title)*@
+                                Barca chắc suất dự Champions League
+                            </td>
+                            <td class="cell100 column3">
+                                @* @Html.Raw(item.Description)*@
+                                TÂY BAN NHAChiến thắng 2-1 trên sân Betis ở vòng 35 tối 7/5 giúp Barca chắc chắn cán đích trong top 4 La Liga mùa này.
+                            </td>
+                            <td class="cell100 column4">
+                                @* @Html.DisplayFor(modelItem => item.Image)*@
+                                <img width="150px" height="100px" src="https://i1-thethao.vnecdn.net/2022/05/08/2022-05-07-BETIS-BARCELONA-52-7168-1651967054.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=MWAjVTlsh-zM9ARPLrH73w" />
+                            </td>
+                            <td class="cell100 column5">8/5/2022</td>
+                            <td class="cell100 column6">
+                                <div class="wrap-reverse">
+                                    <div class="action-item">
+                                        @Html.ActionLink("Edit", "Edit")
+                                        <i class="fas fa-pen"></i>
+                                    </div>
+                                    <div class="action-item">
+                                        @Html.ActionLink("Details", "Details")
+                                        <i class="fas fa-eye"></i>
+                                    </div>
+                                    <div class="action-item">
+                                      <a href="#" data-id="5" onclick="deleteArticle(this)">Delete</a>
+                                        <i class="fas fa-trash"></i>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+@section scripts
+{
+    @Scripts.Render("~/Js/article")
+    <script>
+        $('.js-pscroll').each(function () {
+            var ps = new PerfectScrollbar(this);
+
+            $(window).on('resize', function () {
+                ps.update();
+            })
+        });
+
+        <script src="~/Scripts/jquery-{version}.js"></script>
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+
+    <script src="js/main.js"></script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"706930caae9bc6a8","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.12.0","si":100}' crossorigin="anonymous"></script>
+
+}

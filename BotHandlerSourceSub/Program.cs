@@ -23,13 +23,9 @@ namespace BotHandlerSourceSub
                 Content = "content-1",
                 CategoryId = "Hoo-1",
                 CreatedAt = DateTime.Now.Ticks
-
             };
-
             var indexResponse = client.IndexDocument(article);
-
             //Console.WriteLine(indexResponse.ToString());
-
             var searchResponse = client.Search<Article>(s => s
                                         .From(0)
                                         .Size(10)
