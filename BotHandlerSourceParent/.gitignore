@@ -10,6 +10,11 @@
 *.userosscache
 *.sln.docstates
 
+AppCrawlerDemo/bin/
+AppCrawlerDemo/obj/Debug/
+BotHandlerSourceParent/obj/
+BotHandlerSourceSub/obj/
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
