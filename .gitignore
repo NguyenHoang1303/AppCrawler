@@ -57,6 +57,13 @@ dlldata.c
 # Benchmark Results
 BenchmarkDotNet.Artifacts/
 
+AppCrawlerDemo/bin/
+AppCrawlerDemo/obj/
+.vs/AppCrawlerDemo/
+AppCrawlerDemo/obj/Debug/
+BotHandlerSourceParent/obj/
+BotHandlerSourceSub/obj/
+
 # .NET Core
 project.lock.json
 project.fragment.lock.json
