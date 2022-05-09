@@ -68,5 +68,10 @@ namespace BotHandlerSourceSub.Service
             }
             return null;
         }
+
+        public bool CheckArticleByUrl(string url)
+        {
+            return articleRepository.CheckArticleByUrl(url);
+        }
     }
 }

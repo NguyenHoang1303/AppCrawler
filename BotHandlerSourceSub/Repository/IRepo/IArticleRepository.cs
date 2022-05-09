@@ -11,6 +11,6 @@ namespace BotHandlerSourceSub.Repository.IRepo
     {
         Article Save(Article article);
         List<Article> GetAll();
-        Article GetArticleByUrl(string urlSource);
+        bool CheckArticleByUrl(string urlSource);
     }
 }

@@ -8,6 +8,7 @@ namespace BotHandlerSourceParent.Entity
 {
     class Article
     {
+        public string Id { get; set; }
         public string UrlSource { get; set; }
         public string Title { get; set; }
         public string Image { get; set; }

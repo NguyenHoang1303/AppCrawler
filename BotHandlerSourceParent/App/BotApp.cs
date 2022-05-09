@@ -26,10 +26,10 @@ namespace BotHandlerSourceParent
             sourceService = new SourceService();
             myQueue = new();
             listSource = sourceService.GetAll();
+
             foreach (var source in listSource)
             {
                 var listEvent = sourceService.GetSubLink(source);
-
                 foreach (var eventQueue in listEvent)
                 {
                     Console.WriteLine(eventQueue.Url);

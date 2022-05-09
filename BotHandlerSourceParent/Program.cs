@@ -1,5 +1,6 @@
 ﻿using BotHandlerSourceParent.App;
 using BotHandlerSourceParent.Queue;
+using BotHandlerSourceParent.Repository;
 using System.Threading.Tasks;
 
 namespace BotHandlerSourceParent
@@ -8,12 +9,8 @@ namespace BotHandlerSourceParent
     {
         static async Task Main(string[] args)
         {
-            //new BotApp().Start();
-
             var cronJopApp = new CronJopApp();
             await cronJopApp.Run();
-
-            //new MyQueue().TestSender("hello Nguyen");
         }
     }
 }

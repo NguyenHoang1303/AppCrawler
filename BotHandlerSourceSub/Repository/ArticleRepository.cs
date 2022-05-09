@@ -40,7 +40,7 @@ namespace BotHandlerSourceSub.Repository
             }
         }
 
-        public Article GetArticleByUrl(string urlSource)
+        public bool CheckArticleByUrl(string urlSource)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace BotHandlerSourceSub.Repository
                 command.Prepare();
                 command.Parameters.AddWithValue("@UrlSource", urlSource);
                 var data = command.ExecuteReader();
-                return data.Read() ? CreateArticle(data) : null;
+                return data.Read() ? true : false;
             }
             catch (Exception e)
             {

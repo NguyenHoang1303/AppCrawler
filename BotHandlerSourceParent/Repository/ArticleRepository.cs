@@ -56,13 +56,14 @@ namespace BotHandlerSourceParent.Repository
         {
             return new Article()
             {
-                UrlSource = data.GetString(0),
-                Title = data.GetString(1),
-                Image = data.GetString(2),
-                Description = data.GetString(3),
-                Content = data.GetString(4),
-                CategoryId = data.GetString(5),
-                CreatedAt = data.GetInt64(6),
+                Id = data.GetString(0),
+                UrlSource = data.GetString(1),
+                Title = data.GetString(2),
+                Image = data.GetString(3),
+                Description = data.GetString(4),
+                Content = data.GetString(5),
+                CategoryId = data.GetString(6),
+                CreatedAt = data.GetInt64(7),
             };
         }
     }

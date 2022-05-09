@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCrawlerDemo", "AppCrawlerDemo\AppCrawlerDemo.csproj", "{B0A7C4D4-1E71-46F0-8A82-E8E129288157}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BotHandlerSourceParent", "BotHandlerSourceParent\BotHandlerSourceParent.csproj", "{E2DB5CA3-4433-4E4F-8926-26BFE04B00EF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BotHandlerSourceSub", "BotHandlerSourceSub\BotHandlerSourceSub.csproj", "{A8F79BEF-3392-4A15-8839-26F5408B5E7C}"
@@ -20,10 +18,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B0A7C4D4-1E71-46F0-8A82-E8E129288157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B0A7C4D4-1E71-46F0-8A82-E8E129288157}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B0A7C4D4-1E71-46F0-8A82-E8E129288157}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B0A7C4D4-1E71-46F0-8A82-E8E129288157}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E2DB5CA3-4433-4E4F-8926-26BFE04B00EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E2DB5CA3-4433-4E4F-8926-26BFE04B00EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2DB5CA3-4433-4E4F-8926-26BFE04B00EF}.Release|Any CPU.ActiveCfg = Release|Any CPU

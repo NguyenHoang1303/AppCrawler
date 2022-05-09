@@ -13,5 +13,7 @@ namespace BotHandlerSourceSub.Service.IService
     {
         Article Save(Article article);
         Article GetArticle(EventQueue eventQueue);
+
+        bool CheckArticleByUrl(string url);
     }
 }
