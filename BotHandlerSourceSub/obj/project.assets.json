@@ -1427,11 +1427,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hoang\\source\\repos\\AppCrawlerDemo\\BotHandlerSourceSub\\BotHandlerSourceSub.csproj",
+      "projectUniqueName": "C:\\Users\\hoang\\Desktop\\AppCrawler\\BotHandlerSourceSub\\BotHandlerSourceSub.csproj",
       "projectName": "BotHandlerSourceSub",
-      "projectPath": "C:\\Users\\hoang\\source\\repos\\AppCrawlerDemo\\BotHandlerSourceSub\\BotHandlerSourceSub.csproj",
+      "projectPath": "C:\\Users\\hoang\\Desktop\\AppCrawler\\BotHandlerSourceSub\\BotHandlerSourceSub.csproj",
       "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hoang\\source\\repos\\AppCrawlerDemo\\BotHandlerSourceSub\\obj\\",
+      "outputPath": "C:\\Users\\hoang\\Desktop\\AppCrawler\\BotHandlerSourceSub\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
