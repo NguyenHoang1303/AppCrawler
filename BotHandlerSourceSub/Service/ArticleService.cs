@@ -34,12 +34,15 @@ namespace BotHandlerSourceSub.Service
 
             Article article = new()
             {
+               
                 UrlSource = eventQueue.Url,
                 Title = title,
                 Image = image,
                 Description = description,
                 CategoryId = eventQueue.CategryId,
-                Content = contentNode
+                Content = contentNode,
+                
+                
             };
             if (!article.Validation())
             {

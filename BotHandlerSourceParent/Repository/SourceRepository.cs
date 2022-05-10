@@ -32,7 +32,6 @@ namespace BotHandlerSourceParent.Repository
                         CategoryId = data.GetString(7),
                     };
                     sources.Add(source);
-                    Console.WriteLine(source.ToString());
                 }
                 return sources;
             }

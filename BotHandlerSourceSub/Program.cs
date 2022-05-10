@@ -1,5 +1,7 @@
 ﻿using BotHandlerSourceSub.App;
+using BotHandlerSourceSub.Elastic;
 using BotHandlerSourceSub.Entity;
+using BotHandlerSourceSub.Repository;
 using Nest;
 using System;
 using System.Threading.Tasks;

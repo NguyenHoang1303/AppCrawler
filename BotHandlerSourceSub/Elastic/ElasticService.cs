@@ -11,24 +11,38 @@ namespace BotHandlerSourceSub.Elastic
 {
     class ElasticService
     {
-        private static ElasticClient client;
-        private static string IndexName = "articles";
-        private static string CloudId = "JonhnyNguyen:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJDQxMDZkMmJiYjczZTRkNzdhYjFmZTcyZjE3MWYxY2U0JDQ3ZjYzMDUwOGVhNTRkYjQ5ZDUxYWQ5MTQ5NjFiYTY3";
-        private static string ElasticUsername = "elastic";
-        private static string ElasticPassword = "HwkG8UeuXyWlzcBXkgbtgkxE";
-        private static string DefaultIndex = "example-index";
-        public static ElasticClient GetInstance()
+
+
+        public bool CheckArticleById(string id)
         {
-            if (client == null)
-            {
-                var connectionSettings = new ConnectionSettings(CloudId,
-                new BasicAuthenticationCredentials(ElasticUsername, ElasticPassword))
-                .DefaultIndex(DefaultIndex)
-                .DefaultMappingFor<Article>(
-                a => a.IndexName(IndexName));
-                client = new ElasticClient(connectionSettings);
-            }
-            return client;
+            var ls = ElasticConnect.GetInstance().Search<Article>(s => s
+                   .Query(q => q
+
+                       .Bool(b => b
+
+                           .Must(m =>
+
+                               m.Match(mt1 => mt1.Field(f1 => f1.Id).Query(id))
+
+                   ))));
+            return ls.Documents.Count > 0;
+        }
+
+        public void Save(Article article)
+        {
+            ElasticConnect.GetInstance().IndexDocument(article);
+        }
+
+        public List<Article> GetAll()
+        {
+            var res =
+                ElasticConnect.GetInstance()
+                .Search<Article>
+                (s => s.From(0)
+                        .Size(10000)
+                        .Query(q => q.MatchAll()));
+
+            return (List<Article>)res.Documents;
         }
     }
 }

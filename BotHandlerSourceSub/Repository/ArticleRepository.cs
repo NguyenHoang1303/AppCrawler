@@ -14,8 +14,8 @@ namespace BotHandlerSourceSub.Repository
     {
         private string GetAllQuery = "SELECT * FROM Articles";
         private string QueryGetArticleByUrl = "SELECT * FROM Articles WHERE UrlSource = @UrlSource";
-        private string InsertQuery = "INSERT INTO Articles( UrlSource, Title, Image, Description, Content, CategoryId, CreatedAt )" +
-            " VALUES ( @UrlSource, @Title, @Image, @Description, @Content, @CategoryId, @CreatedAt ) ";
+        private string InsertQuery = "INSERT INTO Articles(Id, UrlSource, Title, Image, Description, Content, CategoryId, CreatedAt )" +
+            " VALUES (@Id, @UrlSource, @Title, @Image, @Description, @Content, @CategoryId, @CreatedAt ) ";
 
         public List<Article> GetAll()
         {
@@ -66,14 +66,17 @@ namespace BotHandlerSourceSub.Repository
                 using var cnn = ConnectionHelper.GetConnectSql();
                 cnn.Open();
                 var command = new SqlCommand(InsertQuery, cnn);
+                article.Id = Guid.NewGuid().ToString();
+                article.CreatedAt = DateTime.Now.Ticks;
                 command.Prepare();
+                command.Parameters.AddWithValue("@Id", article.Id);
                 command.Parameters.AddWithValue("@UrlSource", article.UrlSource);
                 command.Parameters.AddWithValue("@Title", article.Title);
                 command.Parameters.AddWithValue("@Image", article.Image);
                 command.Parameters.AddWithValue("@Description", article.Description);
                 command.Parameters.AddWithValue("@Content", article.Content);
                 command.Parameters.AddWithValue("@CategoryId", article.CategoryId);
-                command.Parameters.AddWithValue("@CreatedAt", DateTime.Now.Ticks);
+                command.Parameters.AddWithValue("@CreatedAt", article.CreatedAt);
                 command.ExecuteNonQuery();
                 return article;
             }
@@ -89,13 +92,14 @@ namespace BotHandlerSourceSub.Repository
         {
             return new Article()
             {
-                UrlSource = data.GetString(0),
-                Title = data.GetString(1),
-                Image = data.GetString(2),
-                Description = data.GetString(3),
-                Content = data.GetString(4),
-                CategoryId = data.GetString(5),
-                CreatedAt = data.GetInt64(6),
+                Id = data.GetString(0),
+                UrlSource = data.GetString(1),
+                Title = data.GetString(2),
+                Image = data.GetString(3),
+                Description = data.GetString(4),
+                Content = data.GetString(5),
+                CategoryId = data.GetString(6),
+                CreatedAt = data.GetInt64(7),
             };
         }
     }

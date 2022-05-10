@@ -8,6 +8,7 @@ namespace BotHandlerSourceSub.Entity
 {
     class Article
     {
+        public string Id { get; set; }
         public string UrlSource { get; set; }
         public string Title { get; set; }
         public string Image { get; set; }
@@ -15,7 +16,6 @@ namespace BotHandlerSourceSub.Entity
         public string Content { get; set; }
         public string CategoryId { get; set; }
         public long CreatedAt { get; set; }
-
         public bool Validation()
         {
             if (string.IsNullOrEmpty(Title))
@@ -36,5 +36,7 @@ namespace BotHandlerSourceSub.Entity
             }
             return true;
         }
+
+        
     }
 }

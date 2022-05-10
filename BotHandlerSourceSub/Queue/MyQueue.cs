@@ -1,4 +1,5 @@
 ﻿using BotHandlerSourceSub.Elastic;
+using BotHandlerSourceSub.Entity;
 using BotHandlerSourceSub.Service;
 using BotHandlerSourceSub.Service.IService;
 using Newtonsoft.Json;
@@ -12,10 +13,12 @@ namespace BotHandlerSourceSub.Queue
     class MyQueue
     {
         private IArticleService articleService;
+        private ElasticService elastic;
 
         public MyQueue()
         {
             articleService = new ArticleService();
+            elastic = new ElasticService();
         }
 
         public void Reciever()
@@ -34,23 +37,32 @@ namespace BotHandlerSourceSub.Queue
             consumer.Received += (model, ea) =>
             {
                 var body = ea.Body.ToArray();
-                var i = 0;
+                
                 var message = Encoding.UTF8.GetString(body);
                 EventQueue eventQueue = JsonConvert.DeserializeObject<EventQueue>(message);
-                var article = articleService.GetArticle(eventQueue);
-                if (article != null)
-                {
-                    articleService.Save(article);
-                    ElasticService.GetInstance().IndexDocument(article);
-                    Console.WriteLine(" [x] Received{0}:  {1}", i++, article.UrlSource);
-                }
+                HandlerEvenQueue(eventQueue);
 
-              
             };
             channel.BasicConsume(queue: "crawler",
                                  autoAck: true,
                                  consumer: consumer);
             Console.ReadLine();
+        }
+
+        private void HandlerEvenQueue(EventQueue eventQueue)
+        {
+            var article = articleService.GetArticle(eventQueue);
+            var i = 0;
+            if (article != null)
+            {
+                var a = articleService.Save(article);
+                if (!elastic.CheckArticleById(a.Id))
+                {
+                    elastic.Save(article);
+                }
+
+                Console.WriteLine(" [x] Received{0}:  {1}", i++, article.UrlSource);
+            }
         }
     }
 }
